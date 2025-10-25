@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+<head>
+  <style>
+    body {
+      width: 720pt;
+      height: 405pt;
+      margin: 0;
+      padding: 40pt;
+      font-family: Arial, Helvetica, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: #FFFFFF;
+      color: #181B24;
+      box-sizing: border-box;
+    }
+    h1 {
+      font-size: 28pt;
+      font-weight: bold;
+      margin: 0 0 20pt 0;
+    }
+    .grid-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 15pt;
+      width: 100%;
+      height: 100%;
+    }
+    .grid-item {
+      background-color: #E8E4F3;
+      border: 1px solid #B165FB;
+      border-radius: 6pt;
+      padding: 15pt;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .grid-item h2 {
+        font-size: 16pt;
+        font-weight: bold;
+        color: #181B24;
+        margin: 10pt 0;
+    }
+     .grid-item p {
+        font-size: 12pt;
+        margin: 0;
+     }
+     img {
+         width: 32pt;
+         height: 32pt;
+     }
+  </style>
+</head>
+<body>
+  <h1>Các Pattern Phổ biến của Agentic AI</h1>
+  <div class="grid-container">
+    <div class="grid-item">
+        <img src="icons/icon-thought.png" />
+        <h2>ReAct Pattern</h2>
+        <p>Thought → Action → Observation</p>
+        <p>Vòng lặp suy luận và hành động</p>
+    </div>
+    <div class="grid-item">
+        <img src="icons/icon-reflection.png" />
+        <h2>Reflection Pattern</h2>
+        <p>Tự đánh giá và cải thiện</p>
+        <p>Học từ kết quả trước đó</p>
+    </div>
+    <div class="grid-item">
+        <img src="icons/icon-plan.png" />
+        <h2>Planning Pattern</h2>
+        <p>Lập kế hoạch trước khi thực thi</p>
+        <p>Chia nhỏ mục tiêu phức tạp</p>
+    </div>
+    <div class="grid-item">
+        <img src="icons/icon-team.png" />
+        <h2>Multi-agent Pattern</h2>
+        <p>Nhiều agents chuyên biệt</p>
+        <p>Phối hợp để đạt mục tiêu chung</p>
+    </div>
+  </div>
+</body>
+</html>

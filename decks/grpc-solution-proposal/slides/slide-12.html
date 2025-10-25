@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    html {
+      background: #ffffff;
+    }
+    body {
+      width: 720pt;
+      height: 405pt;
+      margin: 0;
+      padding: 0;
+      background: #ffffff;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+    }
+    .content {
+      margin: 40pt;
+      flex: 1;
+    }
+    h1 {
+      margin: 0 0 14pt 0;
+      font-size: 24pt;
+      color: #292929;
+      font-weight: bold;
+    }
+    .phases {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12pt;
+    }
+    .phase {
+      padding: 10pt;
+      border-radius: 4pt;
+      border-left: 4pt solid;
+    }
+    .phase-0 {
+      background: #FFE6E6;
+      border-left-color: #E33737;
+    }
+    .phase-1 {
+      background: #FFF4E6;
+      border-left-color: #FF8C00;
+    }
+    .phase-2 {
+      background: #FFF9E6;
+      border-left-color: #FFD700;
+    }
+    .phase-3 {
+      background: #EBF5FF;
+      border-left-color: #4A90E2;
+    }
+    .phase h2 {
+      margin: 0 0 6pt 0;
+      font-size: 15pt;
+      font-weight: bold;
+      color: #292929;
+    }
+    .phase p {
+      margin: 0 0 3pt 0;
+      font-size: 12pt;
+      color: #292929;
+      line-height: 1.3;
+    }
+    .phase p:last-child {
+      margin-bottom: 0;
+    }
+    .meta {
+      font-size: 11pt;
+      font-style: italic;
+      color: #666666;
+    }
+  </style>
+</head>
+<body>
+  <div class="content">
+    <h1>Khuyến nghị và Bước tiếp theo</h1>
+    
+    <div class="phases">
+      <div class="phase phase-0">
+        <h2>Phase 0: Ngay lập tức</h2>
+        <p>Tăng message size lên 20-30MB</p>
+        <p class="meta">Timeline: 1 tuần | Risk: Thấp</p>
+        <p class="meta">Goal: Cho phép triển khai Lotte</p>
+      </div>
+      
+      <div class="phase phase-1">
+        <h2>Phase 1: Short-term (3-6 tháng)</h2>
+        <p>Implement streaming architecture</p>
+        <p>Design and prototype streaming pattern</p>
+        <p>Test với dev/test clusters</p>
+        <p class="meta">Timeline: 3-4 tháng | Risk: Trung bình</p>
+      </div>
+      
+      <div class="phase phase-2">
+        <h2>Phase 2: Medium-term (6-12 tháng)</h2>
+        <p>Phased rollout</p>
+        <p>Deploy to small production clusters (&lt;1k pods)</p>
+        <p>Monitor and refine</p>
+        <p>Gradual expansion to larger clusters</p>
+        <p class="meta">Timeline: 4-6 tháng | Risk: Thấp-Trung bình</p>
+      </div>
+      
+      <div class="phase phase-3">
+        <h2>Phase 3: Long-term (12+ tháng)</h2>
+        <p>Full migration</p>
+        <p>All clusters on streaming</p>
+        <p>Deprecate polling mode</p>
+        <p class="meta">Timeline: 2-4 tháng | Risk: Thấp</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+

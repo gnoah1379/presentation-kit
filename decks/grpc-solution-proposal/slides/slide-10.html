@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    html {
+      background: #ffffff;
+    }
+    body {
+      width: 720pt;
+      height: 405pt;
+      margin: 0;
+      padding: 0;
+      background: #ffffff;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+    }
+    .content {
+      margin: 40pt;
+      flex: 1;
+    }
+    h1 {
+      margin: 0 0 24pt 0;
+      font-size: 32pt;
+      color: #292929;
+      font-weight: bold;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14pt;
+    }
+    thead {
+      background: #292929;
+      color: #ffffff;
+    }
+    th {
+      padding: 12pt;
+      text-align: left;
+      font-weight: bold;
+    }
+    td {
+      padding: 12pt;
+      border: 1pt solid #CCCBCB;
+    }
+    tbody tr:nth-child(even) {
+      background: #F5F5F5;
+    }
+    tbody tr:nth-child(odd) {
+      background: #ffffff;
+    }
+    .good {
+      color: #2ECC71;
+      font-weight: bold;
+    }
+    .bad {
+      color: #E33737;
+      font-weight: bold;
+    }
+    .moderate {
+      color: #FF8C00;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="content">
+    <h1>Trade-offs Kiến trúc</h1>
+    
+    <table>
+      <thead>
+        <tr>
+          <th>Tiêu chí</th>
+          <th>Polling (hiện tại)</th>
+          <th>Streaming (đề xuất)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Hiệu quả tài nguyên</td>
+          <td><span class="bad">✗</span> Thấp (waste 80-90%)</td>
+          <td><span class="good">✓</span> Cao (chỉ gửi thay đổi)</td>
+        </tr>
+        <tr>
+          <td>Độ phức tạp</td>
+          <td><span class="good">✓</span> Đơn giản</td>
+          <td><span class="bad">✗</span> Phức tạp hơn</td>
+        </tr>
+        <tr>
+          <td>Khả năng mở rộng</td>
+          <td><span class="bad">✗</span> Kém (linear scale)</td>
+          <td><span class="good">✓</span> Tốt (constant overhead)</td>
+        </tr>
+        <tr>
+          <td>Real-time</td>
+          <td><span class="bad">✗</span> Độ trễ 0-60s</td>
+          <td><span class="good">✓</span> Độ trễ &lt;1s</td>
+        </tr>
+        <tr>
+          <td>Tích hợp</td>
+          <td><span class="good">✓</span> Đơn giản</td>
+          <td><span class="moderate">⚠</span> Cần điều chỉnh CM/Alarm</td>
+        </tr>
+        <tr>
+          <td>Operational</td>
+          <td><span class="good">✓</span> Quen thuộc</td>
+          <td><span class="bad">✗</span> Pattern mới, monitoring mới</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>
+

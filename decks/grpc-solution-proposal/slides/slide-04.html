@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    html {
+      background: #ffffff;
+    }
+    body {
+      width: 720pt;
+      height: 405pt;
+      margin: 0;
+      padding: 0;
+      background: #ffffff;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+    }
+    .content {
+      margin: 40pt;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    h1 {
+      margin: 0 0 18pt 0;
+      font-size: 28pt;
+      color: #292929;
+      font-weight: bold;
+    }
+    .main-content {
+      display: flex;
+      gap: 30pt;
+      flex: 1;
+    }
+    .left-column {
+      flex: 0 0 280pt;
+      display: flex;
+      flex-direction: column;
+    }
+    .right-column {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    h2 {
+      margin: 0 0 10pt 0;
+      font-size: 18pt;
+      color: #E33737;
+      font-weight: bold;
+    }
+    p {
+      margin: 0 0 6pt 0;
+      font-size: 14pt;
+      color: #292929;
+      line-height: 1.4;
+    }
+    .callout-box {
+      background: #FFE6E6;
+      padding: 12pt;
+      border-left: 4pt solid #E33737;
+      border-radius: 4pt;
+      margin-top: 14pt;
+    }
+    .callout-box p {
+      font-size: 13pt;
+      font-style: italic;
+      color: #E33737;
+      font-weight: bold;
+    }
+    .placeholder {
+      background: #e0e0e0;
+      border: 2px dashed #999999;
+    }
+  </style>
+</head>
+<body>
+  <div class="content">
+    <h1>Nguyên nhân Sâu xa</h1>
+    
+    <div class="main-content">
+      <div class="left-column">
+        <div>
+          <h2>Thu thập định kỳ (Polling)</h2>
+          <p>Thu thập TẤT CẢ metadata mỗi 60 giây</p>
+          <p>80-90% dữ liệu KHÔNG thay đổi</p>
+          <p>Lãng phí tài nguyên hệ thống</p>
+          <p>Tăng tải cho Backend và Agent</p>
+        </div>
+        
+        <div class="callout-box">
+          <p>"Metadata K8s ít thay đổi nhưng đang thu thập như thể luôn thay đổi"</p>
+        </div>
+      </div>
+      
+      <div class="right-column">
+        <div id="data-waste-chart" class="placeholder" style="width: 340pt; height: 280pt;"></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+

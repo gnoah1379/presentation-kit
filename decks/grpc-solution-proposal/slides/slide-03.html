@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    html {
+      background: #ffffff;
+    }
+    body {
+      width: 720pt;
+      height: 405pt;
+      margin: 0;
+      padding: 0;
+      background: #ffffff;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+    }
+    .content {
+      margin: 40pt;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 18pt;
+    }
+    .warning-icon {
+      width: 32pt;
+      height: 32pt;
+      margin-right: 12pt;
+    }
+    h1 {
+      margin: 0;
+      font-size: 28pt;
+      color: #292929;
+      font-weight: bold;
+    }
+    .main-content {
+      display: flex;
+      gap: 30pt;
+      flex: 1;
+    }
+    .left-column {
+      flex: 0 0 300pt;
+    }
+    .right-column {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    h2 {
+      margin: 0 0 8pt 0;
+      font-size: 18pt;
+      color: #E33737;
+      font-weight: bold;
+    }
+    p {
+      margin: 0 0 6pt 0;
+      font-size: 14pt;
+      color: #292929;
+      line-height: 1.4;
+    }
+    .section {
+      margin-bottom: 16pt;
+    }
+    .highlight-box {
+      background: #FFE6E6;
+      padding: 8pt;
+      border-left: 4pt solid #E33737;
+      margin-top: 6pt;
+    }
+    .highlight-box p {
+      font-weight: bold;
+      color: #E33737;
+    }
+    .placeholder {
+      background: #e0e0e0;
+      border: 2px dashed #999999;
+    }
+  </style>
+</head>
+<body>
+  <div class="content">
+    <div class="header">
+      <img src="icon-warning.png" alt="" class="warning-icon">
+      <h1>Vấn đề Hiện tại</h1>
+    </div>
+    
+    <div class="main-content">
+      <div class="left-column">
+        <div class="section">
+          <h2>Tình trạng</h2>
+          <p>Agent gửi message kích thước ~12MB</p>
+          <p>Server cấu hình max size: 10MB</p>
+          <div class="highlight-box">
+            <p>→ Server không thể xử lý được dữ liệu</p>
+          </div>
+        </div>
+        
+        <div class="section">
+          <h2>Tác động</h2>
+          <p>Lỗi xử lý dữ liệu định kỳ</p>
+          <p>Mất mát thông tin metadata</p>
+          <p>Không thể triển khai tại Lotte</p>
+        </div>
+      </div>
+      
+      <div class="right-column">
+        <div id="message-size-chart" class="placeholder" style="width: 320pt; height: 240pt;"></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+

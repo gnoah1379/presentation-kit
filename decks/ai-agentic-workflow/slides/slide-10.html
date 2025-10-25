@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+<head>
+  <style>
+    body {
+      width: 720pt;
+      height: 405pt;
+      margin: 0;
+      padding: 30pt;
+      font-family: Arial, Helvetica, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: #FFFFFF;
+      color: #181B24;
+      box-sizing: border-box;
+    }
+    h1 {
+      font-size: 28pt;
+      font-weight: bold;
+      margin: 0 0 15pt 0;
+    }
+    p {
+        margin: 0;
+    }
+    .grid-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 15pt;
+      width: 100%;
+      height: 100%;
+    }
+    .category-box {
+      background-color: #E8E4F3;
+      padding: 15pt;
+      border-radius: 6pt;
+    }
+    .category-box h2 {
+        font-size: 16pt;
+        font-weight: bold;
+        color: #B165FB;
+        margin: 0 0 10pt 0;
+        display: flex;
+        align-items: center;
+    }
+     .category-box ul {
+        list-style-type: disc;
+        padding-left: 20pt;
+        margin: 0;
+     }
+     .category-box li {
+        font-size: 12pt;
+        margin-bottom: 5pt;
+     }
+     img {
+        width: 20pt;
+        height: 20pt;
+        margin-right: 8pt;
+     }
+  </style>
+</head>
+<body>
+  <h1>Tools & Frameworks</h1>
+  <div class="grid-container">
+    <div class="category-box">
+        <h2><img src="icons/icon-code.png" />Development Tools</h2>
+        <ul>
+            <li>GitHub Copilot</li>
+            <li>Cursor</li>
+            <li>Tabnine</li>
+            <li>Codeium</li>
+        </ul>
+    </div>
+    <div class="category-box">
+        <h2><img src="icons/icon-framework.png" />Agent Frameworks</h2>
+        <ul>
+            <li>LangChain</li>
+            <li>LlamaIndex</li>
+            <li>AutoGPT</li>
+            <li>CrewAI</li>
+        </ul>
+    </div>
+    <div class="category-box">
+        <h2><img src="icons/icon-workflow.png" />Workflow Automation</h2>
+        <ul>
+            <li>n8n</li>
+            <li>Zapier</li>
+            <li>Make</li>
+        </ul>
+    </div>
+    <div class="category-box">
+        <h2><img src="icons/icon-tasks.png" />Testing & QA</h2>
+        <ul>
+            <li>AI Test Generators</li>
+            <li>Automated QA Agents</li>
+        </ul>
+    </div>
+  </div>
+</body>
+</html>

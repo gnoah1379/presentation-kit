@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    html {
+      background: #ffffff;
+    }
+    body {
+      width: 720pt;
+      height: 405pt;
+      margin: 0;
+      padding: 0;
+      background: #ffffff;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+    }
+    .content {
+      margin: 40pt;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    h1 {
+      margin: 0 0 12pt 0;
+      font-size: 32pt;
+      color: #292929;
+      font-weight: bold;
+    }
+    .subtitle {
+      margin: 0 0 30pt 0;
+      font-size: 18pt;
+      color: #666666;
+    }
+    .comparison {
+      display: flex;
+      gap: 20pt;
+      align-items: center;
+      justify-content: center;
+      flex: 1;
+    }
+    .before-box {
+      flex: 0 0 260pt;
+      background: #FFE6E6;
+      padding: 20pt;
+      border-radius: 8pt;
+      border-left: 6pt solid #E33737;
+    }
+    .after-box {
+      flex: 0 0 260pt;
+      background: #EBF5FF;
+      padding: 20pt;
+      border-radius: 8pt;
+      border-left: 6pt solid #4A90E2;
+    }
+    .arrow {
+      flex: 0 0 60pt;
+      text-align: center;
+    }
+    .arrow-icon {
+      width: 60pt;
+      height: 60pt;
+    }
+    h2 {
+      margin: 0 0 16pt 0;
+      font-size: 20pt;
+      font-weight: bold;
+    }
+    .before-box h2 {
+      color: #E33737;
+    }
+    .after-box h2 {
+      color: #4A90E2;
+    }
+    p {
+      margin: 0 0 8pt 0;
+      font-size: 15pt;
+      color: #292929;
+      line-height: 1.5;
+    }
+    p:last-child {
+      margin-bottom: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="content">
+    <h1>Giải pháp Dài hạn: Streaming Architecture</h1>
+    <p class="subtitle">Thay đổi kiến trúc thu thập metadata</p>
+    
+    <div class="comparison">
+      <div class="before-box">
+        <h2>Thay vì</h2>
+        <p>Thu thập TẤT CẢ metadata mỗi 60 giây</p>
+        <p>Gửi message lớn (12MB) định kỳ</p>
+      </div>
+      
+      <div class="arrow">
+        <img src="icon-arrow.png" alt="" class="arrow-icon">
+      </div>
+      
+      <div class="after-box">
+        <h2>Áp dụng</h2>
+        <p>Stream TẤT CẢ khi khởi động (lần đầu)</p>
+        <p>Chỉ gửi THAY ĐỔI khi có sự kiện</p>
+        <p>Message nhỏ (1-10KB) theo sự kiện</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+

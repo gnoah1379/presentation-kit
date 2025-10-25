@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    html {
+      background: #ffffff;
+    }
+    body {
+      width: 720pt;
+      height: 405pt;
+      margin: 0;
+      padding: 0;
+      background: #ffffff;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+    }
+    .content {
+      margin: 40pt;
+      flex: 1;
+    }
+    h1 {
+      margin: 0 0 14pt 0;
+      font-size: 24pt;
+      color: #292929;
+      font-weight: bold;
+    }
+    .section {
+      margin-bottom: 12pt;
+    }
+    .section:last-child {
+      margin-bottom: 0;
+    }
+    .challenges-box {
+      background: #FFF9E6;
+      padding: 10pt;
+      border-left: 4pt solid #FF8C00;
+      border-radius: 4pt;
+    }
+    .mitigation-box {
+      background: #EBF5FF;
+      padding: 10pt;
+      border-left: 4pt solid #4A90E2;
+      border-radius: 4pt;
+    }
+    h2 {
+      margin: 0 0 8pt 0;
+      font-size: 16pt;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 6pt;
+    }
+    .challenges-box h2 {
+      color: #FF8C00;
+    }
+    .mitigation-box h2 {
+      color: #4A90E2;
+    }
+    .icon {
+      width: 20pt;
+      height: 20pt;
+    }
+    ul {
+      margin: 0;
+      padding-left: 18pt;
+    }
+    li {
+      font-size: 13pt;
+      color: #292929;
+      line-height: 1.4;
+      margin-bottom: 4pt;
+    }
+    li:last-child {
+      margin-bottom: 0;
+    }
+    strong {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="content">
+    <h1>Thách thức Tích hợp và Giảm thiểu Rủi ro</h1>
+    
+    <div class="section">
+      <div class="challenges-box">
+        <h2>
+          <img src="icon-warning.png" alt="" class="icon">
+          <span>Thách thức</span>
+        </h2>
+        <ul>
+          <li><strong>CM Service:</strong> Có thể expect periodic snapshots → cần adapt cho event stream</li>
+          <li><strong>Alarm Service:</strong> Cần xử lý streaming events thay vì periodic state checks</li>
+          <li><strong>Events Service:</strong> Potential overlap với K8s event streaming</li>
+          <li><strong>Database:</strong> Schema cần hỗ trợ incremental updates hiệu quả</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="section">
+      <div class="mitigation-box">
+        <h2>
+          <img src="icon-checkmark.png" alt="" class="icon">
+          <span>Giảm thiểu Rủi ro</span>
+        </h2>
+        <ul>
+          <li><strong>Hybrid mode:</strong> Hỗ trợ cả polling (fallback) và streaming ban đầu</li>
+          <li><strong>Phased rollout:</strong> Test với cụm nhỏ trước, sau đó scale dần</li>
+          <li><strong>Monitoring:</strong> Track stream health, event lag, missing updates</li>
+          <li><strong>State reconciliation:</strong> Periodic full sync (24h) để catch missed events</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+
