@@ -112,7 +112,7 @@
 ## Design Direction
 
 ### Color Palette Selection
-**Chosen Palette**: [Name from SKILL.md or custom]
+**Chosen Palette**: [Name of Palette]
 
 **Rationale**: [Why this palette fits the subject matter, audience, and tone]
 
@@ -129,7 +129,7 @@
 - **Data/Statistics**: [Font treatment for emphasis]
 
 ### Visual Style
-- [Chosen visual treatments from SKILL.md Design Principles]
+- [Chosen visual treatments from Design Principles]
 - [Layout approach: geometric patterns, border treatments, etc.]
 - [Background treatments]
 

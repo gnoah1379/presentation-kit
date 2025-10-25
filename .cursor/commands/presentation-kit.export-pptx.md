@@ -10,7 +10,7 @@ $ARGUMENTS
 
 You **MUST** review the user input before proceeding (if not empty).
 
-The text the user enters after `/persentation-kit.export-pptx` in the activation message **is** the <presentation_name>. Assume you always have this text available in this conversation even if `$ARGUMENTS` appears below. Do not ask the user to repeat unless they provide a blank command.
+The text the user enters after `/persentation-kit.export-pptx` in the activation message **is** the <presentation_name> or the path of the `decks/<presentation_name>/` directory. Assume you always have this text available in this conversation even if `$ARGUMENTS` appears below. Do not ask the user to repeat unless they provide a blank command.
 
 
 ---
@@ -29,7 +29,7 @@ The text the user enters after `/persentation-kit.export-pptx` in the activation
 ## CRITICAL: Read Documentation First
 
 **MANDATORY:**
-1. **Read chart sections in `skills/pptx/html2pptx.md`** (lines 426-750)
+1. **Read chart sections in `pptx/html2pptx.md`** (lines 426-750)
    - Chart data format requirements
    - Chart type specifications
    - Color usage rules (NO # prefix)
@@ -44,20 +44,7 @@ The text the user enters after `/persentation-kit.export-pptx` in the activation
 
 ## Workflow Steps
 
-### Step 1: Verify Installation
-
-**What to do:**
-```bash
-# Verify html2pptx is installed
-npm list -g @ant/html2pptx
-
-# If not installed
-npm install -g skills/pptx/html2pptx.tgz
-```
-
----
-
-### Step 2: Prepare Chart Data
+### Step 1: Prepare Chart Data
 
 **What to do:**
 1. Read `plan.md` to extract all chart specifications
@@ -117,7 +104,7 @@ const chartData = {
 
 ---
 
-### Step 3: Create Export Script
+### Step 2: Create Export Script
 
 **What to do:**
 Create a JavaScript file `decks/<presentation_name>/export-pptx.js` that:
@@ -192,7 +179,7 @@ createPresentation().catch(console.error);
 
 ---
 
-### Step 4: Configure Chart Data
+### Step 3: Configure Chart Data
 
 **CRITICAL RULES:**
 
@@ -342,7 +329,7 @@ For comparing multiple data series:
 
 ---
 
-### Step 5: Add Tables (if needed)
+### Step 4: Add Tables (if needed)
 
 **What to do:**
 If any slides have table placeholders, add them using `slide.addTable()`
@@ -396,12 +383,11 @@ slide.addTable(tableData, {
 
 ---
 
-### Step 6: Run Export Script
+### Step 5: Run Export Script
 
 **What to do:**
 ```bash
-cd decks/<presentation_name>
-NODE_PATH=$(npm root -g) node export-pptx.js
+node decks/<presentation_name>/export-pptx.js
 ```
 
 **Expected output:**
@@ -418,14 +404,13 @@ Presentation saved: presentation.pptx
 
 ---
 
-### Step 7: Generate Thumbnails for Validation
+### Step 6: Generate Thumbnails for Validation
 
 **What to do:**
 Create thumbnail grid to visually inspect the presentation:
 
 ```bash
-cd /home/hoang.nguyen17/Projects/presentation-kit
-python skills/pptx/scripts/thumbnail.py decks/<presentation_name>/presentation.pptx decks/<presentation_name>/thumbnails --cols 4
+docker run -rm -v ".decks:/decks" gnoah1379/presentation-kit python thumbnail.py /decks/<presentation_name>/presentation.pptx /decks/<presentation_name>/thumbnails --cols 4
 ```
 
 **This creates:**
@@ -434,7 +419,7 @@ python skills/pptx/scripts/thumbnail.py decks/<presentation_name>/presentation.p
 
 ---
 
-### Step 8: Visual Validation
+### Step 7: Visual Validation
 
 **What to do:**
 1. Read the thumbnail image(s)
@@ -455,7 +440,7 @@ python skills/pptx/scripts/thumbnail.py decks/<presentation_name>/presentation.p
 
 ---
 
-### Step 9: Fix Issues (if found)
+### Step 8: Fix Issues (if found)
 
 **If validation reveals problems:**
 
@@ -477,22 +462,21 @@ python skills/pptx/scripts/thumbnail.py decks/<presentation_name>/presentation.p
    - Re-export presentation
 
 **Iteration process:**
-```bash
+```
 # 1. Fix HTML slides
+
 # 2. Re-run export
-cd decks/<presentation_name>
-NODE_PATH=$(npm root -g) node export-pptx.js
+`node decks/<presentation_name>/export-pptx.js`
 
 # 3. Generate new thumbnails
-cd /home/hoang.nguyen17/Projects/presentation-kit
-python skills/pptx/scripts/thumbnail.py decks/<presentation_name>/presentation.pptx decks/<presentation_name>/thumbnails --cols 4
+`docker run -rm -v ".decks:/decks" gnoah1379/presentation-kit decks/<presentation_name>/presentation.pptx decks/<presentation_name>/thumbnails --cols 4`
 
 # 4. Validate again
 ```
 
 ---
 
-### Step 10: Final Quality Check
+### Step 9: Final Quality Check
 
 **Open presentation in PowerPoint/LibreOffice and verify:**
 

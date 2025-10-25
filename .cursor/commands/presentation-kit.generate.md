@@ -10,7 +10,7 @@ $ARGUMENTS
 
 You **MUST** review the user input before proceeding (if not empty).
 
-The text the user enters after `/persentation-kit.generate` in the activation message **is** the <presentation_name>. Assume you always have this text available in this conversation even if `$ARGUMENTS` appears below. Do not ask the user to repeat unless they provide a blank command.
+The text the user enters after `/persentation-kit.generate` in the activation message **is** the <presentation_name> or the path of the `decks/<presentation_name>/` directory. Assume you always have this text available in this conversation even if `$ARGUMENTS` appears below. Do not ask the user to repeat unless they provide a blank command.
 
 
 ## Prerequisites
@@ -26,7 +26,7 @@ The text the user enters after `/persentation-kit.generate` in the activation me
 ## CRITICAL: Read Documentation First
 
 **MANDATORY FIRST STEP:**
-1. **Read the ENTIRE `skills/pptx/html2pptx.md` file** (no range limits)
+1. **Read the ENTIRE `pptx/html2pptx.md` file** (no range limits)
    - This contains critical formatting rules
    - Syntax requirements for HTML slides
    - Chart and table specifications
@@ -42,26 +42,10 @@ The text the user enters after `/persentation-kit.generate` in the activation me
 
 ## Workflow Steps
 
-### Step 1: Verify Installation
-
-**What to do:**
-1. Check if html2pptx is installed globally
-2. If not installed, run: `npm install -g skills/pptx/html2pptx.tgz`
-
-**Command:**
-```bash
-# Check installation
-npm list -g @ant/html2pptx
-
-# Install if needed
-npm install -g skills/pptx/html2pptx.tgz
-```
-
----
-
-### Step 2: Create Required Visual Assets
+### Step 1: Create Required Visual Assets
 
 **CRITICAL: Create assets BEFORE HTML generation**
+
 
 #### Icons (if needed)
 
@@ -86,11 +70,13 @@ async function rasterizeIcon(IconComponent, color, size, filename) {
 await rasterizeIcon(FaChartLine, '4472C4', '256', 'decks/my-presentation/slides/icon-chart.png');
 await rasterizeIcon(FaUsers, '70AD47', '256', 'decks/my-presentation/slides/icon-users.png');
 ```
-
+**Save script to file:** `decks/<presentation_name>/rasterize-icon.js`
 **When to create icons:**
 - Decorative elements for section headers
 - Visual indicators for key concepts
 - Bullet point replacements for visual impact
+
+
 
 #### Gradients (if needed)
 
@@ -126,15 +112,17 @@ async function createGradient(color1, color2, direction, filename) {
 // Example: Create gradient backgrounds
 await createGradient('667EEA', '764BA2', 'diagonal', 'decks/my-presentation/slides/gradient-bg.png');
 ```
-
+**Save script to file:** `decks/<presentation_name>/create-gradient.js`
 **When to create gradients:**
 - Full-slide backgrounds
 - Header/section backgrounds
 - Accent shapes with visual interest
 
+
+
 ---
 
-### Step 3: Create HTML Slides
+### Step 2: Create HTML Slides
 
 **CRITICAL RULES FROM html2pptx.md:**
 
@@ -210,7 +198,7 @@ For areas where charts will be added:
 
 ---
 
-### Step 4: Generate Each Slide HTML File
+### Step 3: Generate Each Slide HTML File
 
 **Process for each slide:**
 
@@ -311,36 +299,9 @@ decks/<presentation_name>/slides/slide-03.html
 </body>
 </html>
 ```
-
 ---
 
-### Step 5: Create Preview HTML
-
-**What to do:**
-1. Copy template from `templates/preview.html`
-2. Update configuration values:
-   - `[Presentation Title]` - Replace with actual title
-   - `[Total Slides]` - Replace with slide count
-   - `[Date]` - Replace with current date
-   - `TOTAL_SLIDES` constant in JavaScript
-3. Save to `decks/<presentation_name>/preview.html`
-
-**Updates needed in preview.html:**
-```html
-<!-- Update header -->
-<h1>AI in Healthcare Innovations</h1>
-<p>12 slides • Created October 2025</p>
-
-<!-- Update in controls -->
-<span id="totalSlides">12</span>
-
-<!-- Update JavaScript constant -->
-const TOTAL_SLIDES = 12; // Update this number
-```
-
----
-
-### Step 6: Test Preview
+### Step 4: Test Preview
 
 **What to do:**
 1. Open preview file in browser
@@ -358,7 +319,7 @@ const TOTAL_SLIDES = 12; // Update this number
 
 ---
 
-### Step 7: Validate HTML Slides
+### Step 5: Validate HTML Slides
 
 **For each slide, verify:**
 
@@ -386,7 +347,7 @@ const TOTAL_SLIDES = 12; // Update this number
 
 ---
 
-### Step 8: Create Slide Inventory Document
+### Step 6: Create Slide Inventory Document
 
 **What to do:**
 Create a file `decks/<presentation_name>/slide-inventory.md` documenting:
@@ -440,7 +401,7 @@ Note: Colors listed WITHOUT # prefix for PowerPoint compatibility
 
 ---
 
-### Step 9: Quality Assurance
+### Step 7: Quality Assurance
 
 **Final checks:**
 
